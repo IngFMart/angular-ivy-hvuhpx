@@ -1,0 +1,31 @@
+<h2>Names list</h2>
+
+
+<div id="nameAdd">
+  <div>
+    <label>First Name: </label>
+    <input type="text" [value]="nameToAdd.firstName" (change)="updateFirstName($event)"/>
+  </div>
+  <br>
+  <div>
+    <label>Last Name: </label>
+    <input type="text" [value]="nameToAdd.lastName" (change)="updateLastName($event)"/>
+  </div>
+  <button (click)="addName()">Add Name</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let name of names">
+      <td>{{name.firstName}}</td>
+      <td>{{name.lastName}}</td>
+      <button [value]="name.id" (click)="onDelete($event)">Delete</button>
+    </tr>
+  </tbody>
+</table>
